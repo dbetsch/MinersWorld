@@ -1,0 +1,9 @@
+ore_id,ore_name,quantity,required,owned
+1,Coal,80,50,80
+2,Iron,20,40,20
+3,Gold,15,10,15
+4,Diamond,3,10,3
+5,Emerald,5,5,5
+6,Ruby,0,3,0
+7,Sapphire,2,3,2
+8,Obsidian,1,1,1

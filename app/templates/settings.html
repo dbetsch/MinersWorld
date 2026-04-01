@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Settings — MinersWorld{% endblock %}
+
+{% block content %}
+<h1 class="fw-bold text-warning mb-4">⚙️ Settings</h1>
+
+<div class="card mw-card mb-4">
+  <div class="card-header fw-bold text-info">🔗 Roblox Sync</div>
+  <div class="card-body">
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+      <span class="me-2">⚠️</span>
+      <div>{{ sync_status.message }}</div>
+    </div>
+    <p class="text-muted small">When Roblox sync is available, enter your Roblox username below to automatically pull your inventory.</p>
+    <form>
+      <fieldset disabled>
+        <div class="mb-3">
+          <label class="form-label text-light">Roblox Username</label>
+          <input type="text" class="form-control bg-dark text-light border-secondary" placeholder="e.g. MinerPro123" />
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Sync Inventory (Not Available)</button>
+      </fieldset>
+    </form>
+    <p class="text-muted small mt-3">🚧 This feature will be implemented in a future version once a reliable Roblox inventory API is available.</p>
+  </div>
+</div>
+{% endblock %}
