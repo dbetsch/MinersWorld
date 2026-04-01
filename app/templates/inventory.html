@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Inventory Tracker — MinersWorld{% endblock %}
+
+{% block content %}
+<h1 class="fw-bold text-warning mb-4">🎒 Inventory Tracker</h1>
+
+<div class="card mw-card">
+  <div class="card-body p-0">
+    <table class="table table-dark table-hover mb-0">
+      <thead class="table-secondary">
+        <tr>
+          <th>Ore</th>
+          <th>Owned</th>
+          <th>Required</th>
+          <th>Missing</th>
+          <th>Surplus</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in inventory %}
+        <tr>
+          <td class="fw-semibold">{{ item.ore_name }}</td>
+          <td>{{ item.owned }}</td>
+          <td>{{ item.required }}</td>
+          <td>
+            {% if item.missing > 0 %}
+              <span class="text-danger">{{ item.missing }}</span>
+            {% else %}
+              <span class="text-muted">0</span>
+            {% endif %}
+          </td>
+          <td>
+            {% if item.surplus > 0 %}
+              <span class="text-success">{{ item.surplus }}</span>
+            {% else %}
+              <span class="text-muted">0</span>
+            {% endif %}
+          </td>
+          <td>
+            {% if item.missing > 0 %}
+              <span class="badge bg-danger">Missing</span>
+            {% elif item.surplus > 0 %}
+              <span class="badge bg-success">Surplus</span>
+            {% else %}
+              <span class="badge bg-secondary">Complete</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

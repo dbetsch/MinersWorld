@@ -1,0 +1,71 @@
+/* ── MinersWorld dark theme ── */
+body {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.mw-navbar {
+  background: linear-gradient(90deg, #16213e 0%, #0f3460 100%);
+  border-bottom: 2px solid #e94560;
+}
+
+.mw-navbar .navbar-brand {
+  color: #f5c518 !important;
+  font-size: 1.4rem;
+}
+
+.mw-navbar .nav-link {
+  color: #c8d6e5 !important;
+  transition: color 0.2s;
+}
+
+.mw-navbar .nav-link:hover {
+  color: #f5c518 !important;
+}
+
+/* Cards */
+.mw-card {
+  background-color: #16213e;
+  border: 1px solid #0f3460;
+  border-radius: 0.6rem;
+}
+
+.mw-card .card-header {
+  background-color: #0f3460;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+/* Tables */
+.table-dark {
+  --bs-table-bg: #16213e;
+  --bs-table-hover-bg: #1e2d50;
+}
+
+/* Footer */
+.mw-footer {
+  background-color: #0f3460;
+  color: #8395a7;
+  font-size: 0.85rem;
+}
+
+/* Rarity badges */
+.mw-legendary {
+  background-color: #f5c518;
+  color: #1a1a2e;
+  font-weight: 700;
+}
+
+/* Rarity text helpers */
+.rarity-common    { color: #95a5a6; }
+.rarity-uncommon  { color: #2ecc71; }
+.rarity-rare      { color: #3498db; }
+.rarity-epic      { color: #9b59b6; }
+.rarity-legendary { color: #f5c518; }

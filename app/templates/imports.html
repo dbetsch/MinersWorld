@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Import Data — MinersWorld{% endblock %}
+
+{% block content %}
+<h1 class="fw-bold text-warning mb-4">📂 Import Data</h1>
+
+{% if message %}
+<div class="alert alert-success">{{ message }}</div>
+{% endif %}
+{% if error %}
+<div class="alert alert-danger">Error: {{ error }}</div>
+{% endif %}
+
+{% if items %}
+<div class="card mw-card mb-4">
+  <div class="card-header text-info fw-bold">Imported Inventory Preview</div>
+  <div class="card-body p-0">
+    <table class="table table-dark table-hover mb-0">
+      <thead><tr><th>Ore</th><th>Quantity</th><th>Required</th><th>Owned</th></tr></thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.ore_name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.required }}</td>
+          <td>{{ item.owned }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endif %}
+
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="card mw-card h-100">
+      <div class="card-header fw-bold text-info">📋 Upload Ore List</div>
+      <div class="card-body">
+        <p class="text-light small">Upload a CSV or XLSX file with columns: <code>id, name, rarity, tier, value, source</code></p>
+        <form method="post" action="/imports/upload" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="form-label text-light">Select file</label>
+            <input class="form-control bg-dark text-light border-secondary" type="file" name="file" accept=".csv,.xlsx" required />
+          </div>
+          <button type="submit" class="btn btn-outline-info">Upload Ore List</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card mw-card h-100">
+      <div class="card-header fw-bold text-success">🎒 Upload Inventory</div>
+      <div class="card-body">
+        <p class="text-light small">Upload a CSV or XLSX file with columns: <code>ore_id, ore_name, quantity, required, owned</code></p>
+        <form method="post" action="/imports/upload" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="form-label text-light">Select file</label>
+            <input class="form-control bg-dark text-light border-secondary" type="file" name="file" accept=".csv,.xlsx" required />
+          </div>
+          <button type="submit" class="btn btn-outline-success">Upload Inventory</button>
+        </form>
+        <p class="text-muted small mt-2">You can download <a href="/static/sample_inventory.csv" class="text-info">sample_inventory.csv</a> as a template.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

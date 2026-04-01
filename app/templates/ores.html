@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Ore Database — MinersWorld{% endblock %}
+
+{% block content %}
+<h1 class="fw-bold text-warning mb-4">💎 Ore Database</h1>
+
+<div class="card mw-card">
+  <div class="card-body p-0">
+    <table class="table table-dark table-hover mb-0">
+      <thead class="table-secondary">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Rarity</th>
+          <th>Tier</th>
+          <th>Value</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ore in ores %}
+        <tr>
+          <td class="text-muted">{{ ore.id }}</td>
+          <td class="fw-semibold">{{ ore.name }}</td>
+          <td>
+            {% if ore.rarity == "Common" %}
+              <span class="badge bg-secondary">Common</span>
+            {% elif ore.rarity == "Uncommon" %}
+              <span class="badge bg-success">Uncommon</span>
+            {% elif ore.rarity == "Rare" %}
+              <span class="badge bg-primary">Rare</span>
+            {% elif ore.rarity == "Epic" %}
+              <span class="badge bg-info text-dark">Epic</span>
+            {% elif ore.rarity == "Legendary" %}
+              <span class="badge mw-legendary">Legendary</span>
+            {% else %}
+              <span class="badge bg-dark">{{ ore.rarity }}</span>
+            {% endif %}
+          </td>
+          <td>{{ ore.tier }}</td>
+          <td class="text-warning">{{ ore.value }}</td>
+          <td class="text-muted">{{ ore.source }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

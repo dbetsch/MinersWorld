@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — MinersWorld{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+  <h1 class="display-5 fw-bold text-warning">⛏ Welcome to MinersWorld</h1>
+  <p class="lead text-light">Track your Roblox Miner's World ores, inventory, and crafting needs.</p>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card mw-card text-center">
+      <div class="card-body">
+        <h2 class="card-title text-info display-6">{{ ore_count }}</h2>
+        <p class="card-text text-light">Total Ore Types</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card mw-card text-center">
+      <div class="card-body">
+        <h2 class="card-title text-danger display-6">{{ stats.missing_count }}</h2>
+        <p class="card-text text-light">Items Missing</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card mw-card text-center">
+      <div class="card-body">
+        <h2 class="card-title text-success display-6">{{ stats.sellable_count }}</h2>
+        <p class="card-text text-light">Items to Sell</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="card mw-card">
+      <div class="card-header text-danger fw-bold">❌ Missing Items</div>
+      <div class="card-body p-0">
+        {% if stats.missing_items %}
+        <table class="table table-dark table-hover mb-0">
+          <thead><tr><th>Ore</th><th>Owned</th><th>Required</th><th>Missing</th></tr></thead>
+          <tbody>
+            {% for item in stats.missing_items %}
+            <tr>
+              <td>{{ item.ore_name }}</td>
+              <td>{{ item.owned }}</td>
+              <td>{{ item.required }}</td>
+              <td><span class="badge bg-danger">{{ item.missing }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p class="text-success p-3 mb-0">🎉 No missing items!</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card mw-card">
+      <div class="card-header text-success fw-bold">💰 Sellable Items</div>
+      <div class="card-body p-0">
+        {% if stats.sellable_items %}
+        <table class="table table-dark table-hover mb-0">
+          <thead><tr><th>Ore</th><th>Owned</th><th>Required</th><th>Surplus</th></tr></thead>
+          <tbody>
+            {% for item in stats.sellable_items %}
+            <tr>
+              <td>{{ item.ore_name }}</td>
+              <td>{{ item.owned }}</td>
+              <td>{{ item.required }}</td>
+              <td><span class="badge bg-success">{{ item.surplus }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p class="text-muted p-3 mb-0">No surplus items to sell.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

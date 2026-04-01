@@ -1,0 +1,9 @@
+id,name,rarity,tier,value,source
+1,Coal,Common,1,1.0,Underground
+2,Iron,Common,1,3.0,Underground
+3,Gold,Uncommon,2,10.0,Deep Mines
+4,Diamond,Rare,3,50.0,Deep Mines
+5,Emerald,Rare,3,45.0,Jungle Caves
+6,Ruby,Epic,4,120.0,Volcanic Depths
+7,Sapphire,Epic,4,115.0,Glacier Caves
+8,Obsidian,Legendary,5,500.0,The Void
