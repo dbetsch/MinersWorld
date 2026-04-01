@@ -1,6 +1,13 @@
 from pydantic import BaseModel, computed_field
 
 class InventoryItem(BaseModel):
+    """An ore entry in the player's inventory.
+
+    ``owned`` reflects the current count in-game; ``quantity`` mirrors
+    ``owned`` when imported from a spreadsheet. ``required`` is the
+    target amount needed for crafting or quest completion.
+    """
+
     ore_id: int
     ore_name: str
     quantity: int

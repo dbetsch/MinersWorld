@@ -2,11 +2,15 @@ from typing import List
 from pydantic import BaseModel
 
 class RecipeIngredient(BaseModel):
+    """A single ingredient line in a crafting recipe."""
+
     ore_id: int
     ore_name: str
     quantity: int
 
 class Recipe(BaseModel):
+    """A crafting recipe that turns ingredients into an output ore/item."""
+
     id: int
     output_ore_id: int
     output_ore_name: str

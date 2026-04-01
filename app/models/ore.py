@@ -2,6 +2,13 @@ from typing import Optional
 from pydantic import BaseModel
 
 class Ore(BaseModel):
+    """A minable ore in Roblox Miner's World.
+
+    Attributes:
+        tier: Mining level required (1 = starter, 5 = end-game).
+        source: In-game biome or zone where the ore spawns.
+    """
+
     id: int
     name: str
     rarity: str

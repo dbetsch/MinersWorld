@@ -13,7 +13,7 @@ templates = Jinja2Templates(directory=str(Path(__file__).parent.parent / "templa
 
 @router.get("/imports", response_class=HTMLResponse)
 async def imports_page(request: Request):
-    return templates.TemplateResponse(request, "imports.html")
+    return templates.TemplateResponse(request, "imports.html", context={})
 
 
 @router.post("/imports/upload", response_class=HTMLResponse)
